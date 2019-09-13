@@ -1,10 +1,16 @@
 package com.bordgejmer.user;
 
+import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.Id;
 
-@RequiredArgsConstructor
+@NoArgsConstructor
+@Setter(AccessLevel.PACKAGE)
 @Getter
 public class User {
-    private final String name;
+    @Id
+    private String id;
+    private String name;
 }
