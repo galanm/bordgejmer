@@ -1,4 +1,4 @@
-package com.bordgejmer.backend;
+package com.bordgejmer;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

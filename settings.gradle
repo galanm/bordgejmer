@@ -1,6 +1,12 @@
 pluginManagement {
+
+	plugins {
+		id 'org.springframework.boot' version "${springBootVersion}"
+	}
+
 	repositories {
 		gradlePluginPortal()
 	}
+
 }
 rootProject.name = 'backend'
