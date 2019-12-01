@@ -1,11 +1,15 @@
 package com.bordgejmer.user;
 
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.lang.NonNull;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserRespository extends CrudRepository<User, String> {
+interface UserRepository extends CrudRepository<User, String> {
+    @NonNull
     List<User> findAll();
+
+    @NonNull
     Optional<User> findByName(String name);
 }

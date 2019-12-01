@@ -8,20 +8,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
 @RestController
 @RequestMapping("/user")
 @RequiredArgsConstructor
 class UserListingEndpoint {
-    private final UserRespository userRespository;
+
+    private final UserOperations userOperations;
 
     @GetMapping
     List<User> getUsers() {
-        return userRespository.findAll();
+        return userOperations.findAll();
     }
 
-    @GetMapping("/{name}")
-    User getUser(@PathVariable String name) {
-        return userRespository.findByName(name).orElseThrow(UserNotFoundException::new);
+    @GetMapping(value = "/{name}", produces = APPLICATION_JSON_VALUE)
+    User getByName(@PathVariable String name) {
+        return userOperations.findByName(name).orElseThrow(UserNotFoundException::new);
     }
 
 }

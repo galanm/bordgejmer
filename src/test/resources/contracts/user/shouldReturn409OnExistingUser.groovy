@@ -4,19 +4,20 @@ import org.springframework.cloud.contract.spec.Contract
 
 import static org.springframework.cloud.contract.verifier.util.ContentType.JSON
 
+def existingUserName = 'user1'
+
 Contract.make {
     request {
-        method 'GET'
-        url '/user/user1'
-    }
-    response {
-        status OK()
+        method 'POST'
+        url '/user'
         body([
-                id: anyNonBlankString(),
-                name: 'user1'
+                name: existingUserName,
         ])
         headers {
             contentType JSON.mimeType
         }
+    }
+    response {
+        status CONFLICT()
     }
 }

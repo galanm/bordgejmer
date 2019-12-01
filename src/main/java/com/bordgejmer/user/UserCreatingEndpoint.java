@@ -13,12 +13,11 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 @RequiredArgsConstructor
 class UserCreatingEndpoint {
 
-    private final UserRespository userRespository;
+    private final UserOperations userOperations;
 
     @PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
     User create(@RequestBody User user) {
-        return userRespository.save(user);
+        return userOperations.create(user);
     }
-
 
 }
