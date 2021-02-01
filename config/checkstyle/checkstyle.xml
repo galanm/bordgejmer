@@ -10,6 +10,9 @@
 
 <module name="Checker">
     <module name="SuppressWarningsFilter"/>
+    <module name="LineLength">
+        <property name="max" value="160"/>
+    </module>
     <module name="TreeWalker">
         <module name="SuppressWarningsHolder"/>
 
@@ -21,9 +24,6 @@
             <property name="throwsIndent" value="4"/>
             <property name="lineWrappingIndentation" value="8"/>
             <property name="arrayInitIndent" value="4"/>
-        </module>
-        <module name="LineLength">
-            <property name="max" value="160"/>
         </module>
         <module name="MethodParamPad"/>
         <module name="NoWhitespaceAfter"/>

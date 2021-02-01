@@ -1,16 +1,19 @@
 package com.bordgejmer.user;
 
-import lombok.AccessLevel;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Data
 @NoArgsConstructor
-@Setter(AccessLevel.PACKAGE)
-@Getter
+@Document
 public class User {
-    @Id
     private String id;
+    @Indexed
     private String name;
+
+    User(String name) {
+        this.name = name;
+    }
 }
